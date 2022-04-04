@@ -1,0 +1,111 @@
+.pace { /* fixed pace (the center image) */
+    -webkit-pointer-events: none;
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  
+    -webkit-perspective: 12rem;
+    -moz-perspective: 12rem;
+    -ms-perspective: 12rem;
+    -o-perspective: 12rem;
+    perspective: 12rem;
+  
+    z-index: 2000;      /* same as bottom */
+    position: fixed;    /* centering circle positioning */
+    height: 10rem;      /* centering circle positioning */
+    width: 10rem;       /* centering circle positioning */
+    margin: auto;       /* centering circle positioning */
+    top: 0;             /* centering circle positioning */
+    left: 0;            /* centering circle positioning */
+    right: 0;           /* centering circle positioning */
+    bottom: 0;          /* centering circle positioning */
+    opacity:100 ;
+  }
+  
+  .pace.pace-inactive .pace-progress {
+    display: none;
+  }
+  
+  .pace .pace-progress { /* loading pace */ 
+    z-index: 2000;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 10rem;                                  /* circle size */
+    width: 10rem !important;                        /* circle size */
+    line-height: 10rem;                             /* inner font height of line */
+    font-size: 2rem;                                /* inner font size */
+    border-radius: 0%;                              /* 0% : square, 100% : circle*/
+    border-style: solid;
+    background-image: url("/vendor/adminlte/dist/img/AdminLTELogo.png");
+    background-color: rgba(0,0,0,0.5);            /* Black background with opacity */
+    /*background: rgba(34, 153, 221, 0.8); */       /* circle background color */
+    color: #000;                                  /* inner font color */
+    font-family: "Helvetica Neue", sans-serif;      /* inner font style */
+    font-weight: 1000;                              /* inner font bold */
+    text-align: center;                             /* inner font alignment */
+  
+    -webkit-animation: pace-theme-center-circle-spin linear infinite 1s; /* spin speed */
+    -moz-animation: pace-theme-center-circle-spin linear infinite 1s;    /* spin speed */
+    -ms-animation: pace-theme-center-circle-spin linear infinite 1s;     /* spin speed */
+    -o-animation: pace-theme-center-circle-spin linear infinite 1s;      /* spin speed */
+    animation: pace-theme-center-circle-spin linear infinite 1s;         /* spin speed */
+  
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+  
+  .pace .pace-progress:after {
+    content: attr(data-progress-text);
+    display: block;
+    
+    opacity:0.2 ;
+  }
+  
+  @-webkit-keyframes pace-theme-center-circle-spin {
+    from { -webkit-transform: rotateY(0deg) }
+    to { -webkit-transform: rotateY(360deg) }
+  }
+  
+  @-moz-keyframes pace-theme-center-circle-spin {
+    from { -moz-transform: rotateY(0deg) }
+    to { -moz-transform: rotateY(360deg) }
+  }
+  
+  @-ms-keyframes pace-theme-center-circle-spin {
+    from { -ms-transform: rotateY(0deg) }
+    to { -ms-transform: rotateY(360deg) }
+  }
+  
+  @-o-keyframes pace-theme-center-circle-spin {
+    from { -o-transform: rotateY(0deg) }
+    to { -o-transform: rotateY(360deg) }
+  }
+  
+  @keyframes pace-theme-center-circle-spin {
+    from { transform: rotateY(0deg) }
+    to { transform: rotateY(360deg) }
+  }
+  
+  /* Disable background click */
+  .pace-running > *:not(.pace) {
+    pointer-events: none;
+  }
+
+  /* Make background semi-transparent */
+  body.pace-running:before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1500;
+    /* background-color: rgba(34, 49, 63, 0.5); Change color here */
+    background-color: rgba(46, 49, 49, 0.3); /* Change color here */
+  }
